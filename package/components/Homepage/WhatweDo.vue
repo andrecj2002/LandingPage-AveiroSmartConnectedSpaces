@@ -72,10 +72,11 @@ const currentSlide = ref(0);
           </div>
         </v-col>
       </v-row>
+    </div>
 
-      <!-- Services Carousel -->
-      <v-row class="mt-12">
-        <v-col cols="12">
+    <!-- Services Carousel -->
+    <div class="mt-12">
+      <div class="full-width-carousel">
           <div class="carousel-container">
             <v-carousel
               v-model="currentSlide"
@@ -253,9 +254,10 @@ const currentSlide = ref(0);
               ></div>
             </div>
           </div>
-        </v-col>
-      </v-row>
+      </div>
+    </div>
 
+    <div class="container-lg">
       <v-row class="mt-8">
         <v-col cols="12" class="text-center">
           <v-btn class="interactive-button" href="#contact" size="lg" flat>
@@ -277,15 +279,33 @@ const currentSlide = ref(0);
 </template>
 
 <style scoped lang="scss">
+.full-width-carousel {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  overflow: hidden;
+}
+
 .carousel-container {
   position: relative;
-  overflow: hidden;
-  padding: 0 20px;
+  overflow: visible;
+  padding: 0;
 }
 
 .services-carousel {
   :deep(.v-carousel__controls) {
     display: none;
+  }
+  
+  :deep(.v-window__container) {
+    overflow: visible !important;
+  }
+  
+  :deep(.v-carousel-item) {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
   }
 }
 
@@ -294,19 +314,20 @@ const currentSlide = ref(0);
   align-items: center;
   justify-content: center;
   height: 100%;
-  gap: 20px;
-  padding: 0 40px;
+  gap: 60px;
+  padding: 0;
 
   @media (max-width: 960px) {
-    padding: 0 10px;
+    padding: 0 20px;
   }
 }
 
 .current-card {
   flex: 0 0 auto;
   max-width: 850px;
-  width: 60%;
+  width: 850px;
   z-index: 2;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (max-width: 960px) {
     width: 85%;
@@ -315,26 +336,40 @@ const currentSlide = ref(0);
 
 .preview-card {
   flex: 0 0 auto;
-  width: 250px;
-  opacity: 0.3;
+  width: 700px;
+  max-width: 700px;
+  opacity: 0.35;
   transform: scale(0.85);
-  transition: all 0.3s ease;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (max-width: 960px) {
     display: none;
   }
 
   &:hover {
-    opacity: 0.5;
-    transform: scale(0.9);
+    opacity: 0.55;
+    transform: scale(0.87);
+  }
+
+  .service-card-preview {
+    border-radius: 20px;
+    overflow: hidden;
+  }
+
+  &.prev-card {
+    margin-right: -350px;
+  }
+
+  &.next-card {
+    margin-left: -350px;
   }
 }
 
 .service-card-preview {
   background-color: white;
-  border-radius: 16px;
+  border-radius: 20px;
   height: 100%;
-  min-height: 400px;
+  min-height: 500px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
