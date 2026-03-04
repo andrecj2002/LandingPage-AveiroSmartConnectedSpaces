@@ -27,9 +27,16 @@ import { Icon } from "@iconify/vue";
           <div class="mt-8">
             <form
               class="d-flex flex-column ga-2"
-              action="https://formsubmit.co/ascs@ua.pt"
+              action="https://formsubmit.co/joaoajorge@ua.pt"
               method="POST"
             >
+              <!-- FormSubmit.co configuration -->
+              <input type="hidden" name="_subject" value="Novo contacto - ASCS TB Landing Page">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="http://localhost:3000/success">
+              <input type="text" name="_honey" style="display:none">
+              
               <v-text-field
                 name="name"
                 label="Nome"
@@ -55,6 +62,8 @@ import { Icon } from "@iconify/vue";
                 name="message"
                 label="Descreva o seu projeto"
                 variant="underlined"
+                rows="4"
+                required
               ></v-textarea>
 
               <v-btn
