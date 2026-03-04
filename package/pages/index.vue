@@ -3,12 +3,20 @@
     <HomepageBannerSection />
   </section>
 
-  <section id="stats">
-    <HomepageStatsAndFacts />
+  <section id="about">
+    <HomepageAbout />
   </section>
 
-  <section id="about">
-    <HomepageWhyChoose />
+  <section id="mission">
+    <HomepageMission />
+  </section>
+
+  <section id="benefits">
+    <HomepageBenefitsImpact />
+  </section>
+
+  <section id="target-audience">
+    <HomepageTargetAudience />
   </section>
 
   <section id="services">
@@ -19,8 +27,8 @@
     <HomepagePortfolio />
   </section>
 
-  <section id="benefits">
-    <HomepageBenefitsImpact />
+  <section id="impact">
+    <HomepageStatsAndFacts />
   </section>
 
   <section id="partners">

@@ -2,45 +2,11 @@
 import { Icon } from "@iconify/vue";
 import { ref } from "vue";
 
-const quickLinks = ref([
-  { title: "Home", url: "#home" },
-  { title: "Missão", url: "#about" },
-  { title: "Serviços", url: "#services" },
-  { title: "Parceiros", url: "#partners" },
-  { title: "Contacto", url: "#contact" },
-]);
-
-const usefulLinks = ref([
-  { title: "PRR - Plano de Recuperação e Resiliência", url: "https://www.portugal.gov.pt/pt/gc23/comunicacao/noticia?i=portugal-ja-recebeu-mais-de-metade-dos-fundos-do-prr" },
-  { title: "Agendas Mobilizadoras", url: "https://www.compete2020.gov.pt/admin/images/Avisos_PRR_Agendas_mobilizadoras.pdf" },
-  { title: "IAPMEI", url: "https://www.iapmei.pt/" },
-  { title: "ANI - Agência Nacional de Inovação", url: "https://www.ani.pt/" },
-]);
-
-const documentation = ref([
-  { title: "Manual de Utilizador", url: "#" },
-  { title: "FAQ", url: "#" },
-  { title: "Guia de Boas Práticas", url: "#" },
-]);
-
-const legalLinks = ref([
+const footerLinks = ref([
   { title: "Política de Privacidade", url: "/privacy-policy" },
-  { title: "Política de Cookies", url: "/privacy-policy#cookies" },
-  { title: "Termos e Condições", url: "/terms-conditions" },
+  { title: "Ficha de Projeto", url: "#" },
+  { title: "Catálogo de serviços", url: "#" },
 ]);
-
-const scrollTo = (hash: string) => {
-  if (hash.startsWith('#')) {
-    try {
-      const el = document.querySelector(hash);
-      if (el) {
-        (el as HTMLElement).scrollIntoView({ behavior: "smooth" });
-      }
-    } catch (e) {
-      console.error(e);
-    }
-  }
-};
 </script>
 <template>
   <div class="bg-darkprimary">
@@ -48,7 +14,7 @@ const scrollTo = (hash: string) => {
       <!-- Main Footer Content -->
       <v-row class="mb-8">
         <!-- Contact Section -->
-        <v-col cols="12" md="4">
+        <v-col cols="12" md="6">
           <h3 class="text-h5 text-white mb-4">Contactos</h3>
           <div class="d-flex flex-column ga-3">
             <a
@@ -75,48 +41,13 @@ const scrollTo = (hash: string) => {
               Aveiro, Portugal
             </a>
           </div>
-          <p class="text-body-2 text-white opacity-70 mt-6">
-            Tell us about your challenges and let us know how we can improve your journey
-          </p>
         </v-col>
 
-        <!-- Quick Links -->
-        <v-col cols="12" sm="6" md="2">
-          <h3 class="text-h6 text-white mb-4">Links Rápidos</h3>
+        <!-- Footer Links -->
+        <v-col cols="12" md="6">
+          <h3 class="text-h6 text-white mb-4">Links</h3>
           <ul class="list-style-none d-flex flex-column ga-2">
-            <li v-for="(item, i) in quickLinks" :key="i">
-              <a
-                :href="item.url"
-                class="text-body-2 text-white text-decoration-none hover-link"
-                @click.prevent="scrollTo(item.url)"
-              >
-                {{ item.title }}
-              </a>
-            </li>
-          </ul>
-        </v-col>
-
-        <!-- Useful Links -->
-        <v-col cols="12" sm="6" md="3">
-          <h3 class="text-h6 text-white mb-4">Links Úteis</h3>
-          <ul class="list-style-none d-flex flex-column ga-2">
-            <li v-for="(item, i) in usefulLinks" :key="i">
-              <a
-                :href="item.url"
-                target="_blank"
-                class="text-body-2 text-white text-decoration-none hover-link"
-              >
-                {{ item.title }}
-              </a>
-            </li>
-          </ul>
-        </v-col>
-
-        <!-- Documentation -->
-        <v-col cols="12" sm="6" md="3">
-          <h3 class="text-h6 text-white mb-4">Documentação</h3>
-          <ul class="list-style-none d-flex flex-column ga-2">
-            <li v-for="(item, i) in documentation" :key="i">
+            <li v-for="(item, i) in footerLinks" :key="i">
               <a
                 :href="item.url"
                 class="text-body-2 text-white text-decoration-none hover-link"
@@ -144,22 +75,10 @@ const scrollTo = (hash: string) => {
       <v-divider class="border-opacity-25 mb-6"></v-divider>
       
       <v-row>
-        <v-col cols="12" md="6" class="text-center text-md-left">
+        <v-col cols="12" class="text-center">
           <p class="text-body-2 text-white opacity-70 mb-0">
             © {{ new Date().getFullYear() }} ASCS - Aveiro Smart Connected Spaces. Todos os direitos reservados.
           </p>
-        </v-col>
-        <v-col cols="12" md="6">
-          <div class="d-flex justify-center justify-md-end ga-4 flex-wrap">
-            <a
-              v-for="(item, i) in legalLinks"
-              :key="i"
-              :href="item.url"
-              class="text-body-2 text-white text-decoration-none hover-link"
-            >
-              {{ item.title }}
-            </a>
-          </div>
         </v-col>
       </v-row>
     </div>

@@ -4,33 +4,39 @@ import { Icon } from "@iconify/vue";
 const steps = [
   {
     number: "01",
-    title: "Manifestação de Interesse",
-    description: "Envio de formulário ou email com descrição do projeto",
-    icon: "mdi:email-send"
+    title: "Registo de Interesse",
+    description: "Solução, objetivo do piloto, TRL atual e requisitos",
+    icon: "mdi:clipboard-text"
   },
   {
     number: "02",
-    title: "Avaliação e Matching",
-    description: "Análise da adequação e identificação de serviços/parceiros",
-    icon: "mdi:account-search"
+    title: "Pré-avaliação",
+    description: "Enquadramento no portefólio ASCS TB + análise de TRL e viabilidade",
+    icon: "mdi:magnify"
   },
   {
     number: "03",
-    title: "Proposta Personalizada",
-    description: "Plano de teste e cronograma adaptados ao seu projeto",
+    title: "Definição do Piloto",
+    description: "Âmbito, métricas/KPIs, plano de teste, locais e infraestruturas",
     icon: "mdi:file-document-edit"
   },
   {
     number: "04",
-    title: "Execução do Piloto",
-    description: "Implementação e testes em ambiente real",
-    icon: "mdi:rocket-launch"
+    title: "Acordos e Condições",
+    description: "Regras de utilização, dados, segurança e operação",
+    icon: "mdi:handshake"
   },
   {
     number: "05",
-    title: "Análise de Resultados",
-    description: "Recolha de dados, feedback e relatório final",
-    icon: "mdi:chart-line"
+    title: "Execução Assistida",
+    description: "Integração, instrumentação, recolha de dados e operação no terreno",
+    icon: "mdi:rocket-launch"
+  },
+  {
+    number: "06",
+    title: "Evidência e Saída",
+    description: "Relatório técnico (resultados, recomendações, próximos passos)",
+    icon: "mdi:chart-box"
   }
 ];
 </script>
@@ -42,14 +48,14 @@ const steps = [
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4">
-          <SharedLeftSideDarkHeading number="04" title="Onboarding" />
+          <SharedLeftSideDarkHeading number="05" title="Onboarding" />
         </v-col>
         <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-96">
             <SharedCommonHeading
               class="mw-md-670"
-              title="Como começar?"
-              subtitle="Processo simples e transparente para integração no ASCS Test Bed. Do primeiro contacto à análise de resultados."
+              title="Como aderir?"
+              subtitle="Um processo simples, com rastreabilidade técnica. Do registo de interesse à evidência de validação."
             />
           </div>
         </v-col>
@@ -124,22 +130,6 @@ const steps = [
 
 .step-number {
   color: rgb(14, 9, 113);
-}
-
-/* Dark mode styles */
-html.dark {
-  .step-number {
-    color: white !important;
-  }
-  
-  .step-card {
-    border-color: rgba(255, 255, 255, 0.2);
-    
-    &:hover {
-      border-color: rgba(255, 255, 255, 0.4);
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
-    }
-  }
 }
 
 .arrow-connector {

@@ -10,11 +10,13 @@ interface Item {
 
 const items: Item[] = [
   { title: "Início", url: "#home" },
-  { title: "Estatísticas", url: "#stats" },
-  { title: "Missão", url: "#about" },
+  { title: "Sobre", url: "#about" },
+  { title: "Missão", url: "#mission" },
+  { title: "Benefícios", url: "#benefits" },
+  { title: "Destinatários", url: "#target-audience" },
   { title: "Serviços", url: "#services" },
   { title: "Onboarding", url: "#onboarding" },
-  { title: "Benefícios", url: "#benefits" },
+  { title: "Impacto", url: "#impact" },
   { title: "Parceiros", url: "#partners" },
   { title: "Contactos", url: "#contact" },
 ];

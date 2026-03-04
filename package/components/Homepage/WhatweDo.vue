@@ -13,6 +13,15 @@ const services = [
     ],
   },
   {
+    title: "Capacitação",
+    icon: "mdi:rocket-launch-outline",
+    items: [
+      "Incubação e aceleração (modelo de negócio, financiamento, go-to-market, networking)",
+      "Consultoria em Design (user research, cenários de utilização, roadmap funcional, marca)",
+      "Consultoria em gestão estratégica de I&D e estruturação de planos de capacitação",
+    ],
+  },
+  {
     title: "Experimentação",
     icon: "mdi:flask",
     items: [
@@ -25,7 +34,7 @@ const services = [
     ],
   },
   {
-    title: "Testes",
+    title: "Teste",
     icon: "mdi:test-tube",
     items: [
       "Testes avançados de usabilidade com IA para produtos digitais e não digitais",
@@ -35,16 +44,6 @@ const services = [
       "Acesso a infraestruturas de parceiros públicos (ex: redes 4G/5G/B5G)",
       "Ambiente Edge e Cloud",
       "Soluções AI e IoT",
-    ],
-  },
-  {
-    title: "Formação",
-    icon: "mdi:school",
-    items: [
-      "Programa de incubação ou aceleração",
-      "Consultoria em Inteligência Criativa",
-      "Design gráfico de interfaces e protótipos físicos",
-      "Mentoria especializada em Mar e Laguna, Ambiente, Mobilidade e outras áreas relacionadas com gestão urbana",
     ],
   },
 ];
@@ -59,7 +58,7 @@ const currentSlide = ref(0);
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4" class="position-relative">
-          <SharedLeftSideLightHeading number="03" title="Serviços" />
+          <SharedLeftSideLightHeading number="04" title="Serviços" />
         </v-col>
 
         <v-col cols="12" lg="8">
@@ -82,8 +81,7 @@ const currentSlide = ref(0);
               v-model="currentSlide"
               height="580"
               show-arrows="hover"
-              cycle
-              interval="5000"
+              :cycle="false"
               class="services-carousel"
               hide-delimiters
             >
@@ -303,10 +301,6 @@ const currentSlide = ref(0);
   :deep(.v-window__container) {
     overflow: visible !important;
   }
-  
-  :deep(.v-carousel-item) {
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.6s ease;
-  }
 }
 
 .carousel-slide-wrapper {
@@ -314,7 +308,7 @@ const currentSlide = ref(0);
   align-items: center;
   justify-content: center;
   height: 100%;
-  gap: 60px;
+  gap: 40px;
   padding: 0;
 
   @media (max-width: 960px) {
@@ -327,7 +321,6 @@ const currentSlide = ref(0);
   max-width: 850px;
   width: 850px;
   z-index: 2;
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 
   @media (max-width: 960px) {
     width: 85%;
@@ -338,17 +331,15 @@ const currentSlide = ref(0);
   flex: 0 0 auto;
   width: 700px;
   max-width: 700px;
-  opacity: 0.35;
-  transform: scale(0.85);
-  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
 
   @media (max-width: 960px) {
     display: none;
   }
 
   &:hover {
-    opacity: 0.55;
-    transform: scale(0.87);
+    opacity: 0.6;
   }
 
   .service-card-preview {
@@ -357,11 +348,11 @@ const currentSlide = ref(0);
   }
 
   &.prev-card {
-    margin-right: -350px;
+    margin-right: -500px;
   }
 
   &.next-card {
-    margin-left: -350px;
+    margin-left: -500px;
   }
 }
 
@@ -398,7 +389,7 @@ const currentSlide = ref(0);
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.7);
@@ -431,33 +422,6 @@ const currentSlide = ref(0);
 
 .service-item {
   color: #1a1a1a;
-}
-
-/* Dark mode styles */
-html.dark {
-  .service-card,
-  .service-card-preview {
-    background-color: #1a1a1a !important;
-    border: none !important;
-  }
-
-  .service-title {
-    color: white !important;
-  }
-
-  .service-item {
-    color: white !important;
-  }
-
-  /* Setas do carrossel brancas em dark mode */
-  .services-carousel :deep(.v-btn) {
-    color: white !important;
-    background-color: rgba(255, 255, 255, 0.15) !important;
-  }
-
-  .services-carousel :deep(.v-btn--icon) {
-    background-color: rgba(255, 255, 255, 0.15) !important;
-  }
 }
 
 /* Estilo das setas do carrossel - mais visíveis */

@@ -15,10 +15,10 @@ import pciBg from '~/assets/pci_edited_edited_min.jpg';
     <div class="container-lg hero-wrapper">
       <!-- Overlay copy: positioned absolutely on the right at logo level -->
       <div class="hero-overlay-copy" role="region" aria-label="Hero">
-        <p class="hero-overlay-sublead">Laboratório urbano vivo para testar, validar e acelerar a sua inovação</p>
-        <p class="hero-overlay-tagline">Accelerate, Collaborate, Validate &amp; Innovate</p>
+        <p class="hero-overlay-sublead">Infraestrutura de experimentação em ambiente real</p>
+        <p class="hero-overlay-tagline">Demonstração, experimentação, teste e capacitação para acelerar pilotos digitais em espaços urbanos, portuários e marinhos</p>
         <div class="hero-overlay-ctas">
-          <v-btn color="white" size="large" href="#contact" class="text-none">Contacte-nos agora</v-btn>
+          <v-btn color="white" size="large" href="#contact" class="text-none">Fale connosco</v-btn>
         </div>
       </div>
     </div>

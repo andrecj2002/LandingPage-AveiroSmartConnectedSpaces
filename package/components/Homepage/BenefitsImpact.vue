@@ -4,51 +4,51 @@ import ascsLines from '~/assets/toolkit-ASCS/assinatura horizontal/vectorial/neg
 
 const benefits = [
   {
-    icon: "mdi:rocket-launch",
-    title: "Aceleração de Entrada no Mercado",
-    description: "Reduza riscos e tempo de lançamento com validação em ambiente real",
-    color: "primary"
-  },
-  {
-    icon: "mdi:account-voice",
-    title: "Feedback de Utilizadores Reais",
-    description: "Obtenha insights valiosos de utilizadores em contexto real de utilização",
-    color: "secondary"
-  },
-  {
-    icon: "mdi:chart-line",
-    title: "Métricas de Performance Precisas",
-    description: "Avalie o desempenho com dados concretos e métricas autênticas",
-    color: "primary"
-  },
-  {
     icon: "mdi:shield-check",
-    title: "Identificação de Problemas",
-    description: "Detete questões de segurança, integração e usabilidade antes do lançamento",
-    color: "secondary"
-  },
-  {
-    icon: "mdi:cash-multiple",
-    title: "Redução de Custos",
-    description: "Minimize correções pós-lançamento com testes preventivos",
+    title: "Redução de Risco e Custo",
+    description: "Acesso a infraestruturas e competências que tipicamente exigiriam investimento avultado",
     color: "primary"
   },
   {
-    icon: "mdi:refresh-circle",
-    title: "Desenvolvimento Iterativo",
-    description: "Ciclos de feedback contínuos para aperfeiçoamento constante",
+    icon: "mdi:rocket-launch",
+    title: "Time-to-Market Acelerado",
+    description: "Validação em contexto real + iteração rápida suportada por dados",
     color: "secondary"
   },
   {
-    icon: "mdi:trending-up",
-    title: "Testes de Escalabilidade",
-    description: "Valide a capacidade de crescimento e replicabilidade da solução",
+    icon: "mdi:certificate",
+    title: "Evidência Técnica Credível",
+    description: "Testes e relatórios para clientes, investidores e parceiros",
     color: "primary"
+  },
+  {
+    icon: "mdi:network",
+    title: "Acesso a Ecossistema",
+    description: "Indústria, academia, clusters e território com capacidade de escalar pilotos",
+    color: "secondary"
   },
   {
     icon: "mdi:handshake",
     title: "Networking Qualificado",
     description: "Conecte-se com parceiros estratégicos e potenciais clientes",
+    color: "primary"
+  },
+  {
+    icon: "mdi:cash-multiple",
+    title: "Redução de Custos",
+    description: "Minimize correções pós-lançamento com testes preventivos",
+    color: "secondary"
+  },
+  {
+    icon: "mdi:account-voice",
+    title: "Feedback de Utilizadores Reais",
+    description: "Obtenha insights valiosos de utilizadores em contexto real de utilização",
+    color: "primary"
+  },
+  {
+    icon: "mdi:chart-line",
+    title: "Métricas de Performance Precisas",
+    description: "Avalie o desempenho com dados concretos e métricas autênticas",
     color: "secondary"
   }
 ];
@@ -253,35 +253,6 @@ const impacts = [
   align-items: center;
   justify-content: center;
   box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
-}
-
-/* Dark mode */
-html.dark {
-  .benefit-card {
-    background: rgba(26, 26, 26, 0.95);
-    
-    &:hover {
-      background: #1a1a1a;
-    }
-    
-    h3 {
-      color: white;
-    }
-    
-    p {
-      color: rgba(255, 255, 255, 0.9);
-    }
-  }
-  
-  .impact-card {
-    background: rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.1);
-    
-    &:hover {
-      background: rgba(0, 0, 0, 0.4);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-  }
 }
 
 /* Responsive */

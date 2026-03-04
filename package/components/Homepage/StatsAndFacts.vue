@@ -92,14 +92,14 @@ const scrollTo = (hash: string) => {
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4">
-          <SharedLeftSideDarkHeading number="01" title="Impacto" />
+          <SharedLeftSideDarkHeading number="06" title="Impacto" />
         </v-col>
         <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-11">
             <SharedCommonHeading
               class="mw-md-575"
-              title="Validar 59 produtos/serviços piloto até final de 2025"
-              subtitle="Posicionar Portugal como líder europeu no desenvolvimento de produtos piloto e apoio a PMEs/startups, com testes 100% em ambiente real."
+              title="Impacto Esperado"
+              subtitle="A ASCS TB está orientada a resultados mensuráveis, alinhados com transição digital e competitividade empresarial."
             />
 
             <div class="d-flex flex-sm-row flex-column ga-8">

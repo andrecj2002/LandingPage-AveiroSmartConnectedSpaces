@@ -11,7 +11,6 @@ import "@/assets/scss/style.scss";
 import "../_mockApis";
 
 import { LIGHT_THEME } from "@/theme/LightTheme";
-import { DARK_THEME } from "@/theme/DarkTheme";
 
 export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
@@ -21,7 +20,6 @@ export default defineNuxtPlugin((app) => {
       defaultTheme: "LIGHT_THEME",
       themes: {
         LIGHT_THEME,
-        DARK_THEME,
       },
     },
    
