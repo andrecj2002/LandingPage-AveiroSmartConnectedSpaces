@@ -1,4 +1,0 @@
-<template>
-  <ProjectsProjectBanner />
-  <Projects />
-</template>

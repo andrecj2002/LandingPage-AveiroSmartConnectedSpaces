@@ -3,16 +3,19 @@
 ## ⚠️ IMPORTANTE: Antes de fazer deploy
 
 ### 1. Atualizar URL do formulário
-No arquivo `package/components/Homepage/GetinTouch.vue`, linha ~37:
+
+No arquivo `package/components/Homepage/Contacto.vue`, linha ~37:
 
 **Altere de:**
+
 ```html
-<input type="hidden" name="_next" value="http://localhost:3000/success">
+<input type="hidden" name="_next" value="http://localhost:3000/success" />
 ```
 
 **Para (substitua SEU-DOMINIO.com pelo seu domínio real):**
+
 ```html
-<input type="hidden" name="_next" value="https://SEU-DOMINIO.com/success">
+<input type="hidden" name="_next" value="https://SEU-DOMINIO.com/success" />
 ```
 
 Ou remova essa linha se quiser usar a página padrão do FormSubmit.co.
@@ -22,11 +25,13 @@ Ou remova essa linha se quiser usar a página padrão do FormSubmit.co.
 ## 📦 Passo 1: Gerar arquivos estáticos
 
 1. **Navegue até a pasta package:**
+
    ```powershell
    cd "C:\Users\kiko_\Desktop\Universidade\Mestrado\2o Ano\Estagio\Estagio Trabalhos\Case Study I\LandingPage\package"
    ```
 
 2. **Execute o comando de geração:**
+
    ```powershell
    npm run generate
    ```
@@ -40,11 +45,13 @@ Ou remova essa linha se quiser usar a página padrão do FormSubmit.co.
 ## 📂 Passo 2: Localizar arquivos gerados
 
 Após o build bem-sucedido, os arquivos estarão em:
+
 ```
 C:\Users\kiko_\Desktop\Universidade\Mestrado\2o Ano\Estagio\Estagio Trabalhos\Case Study I\LandingPage\package\.output\public
 ```
 
 Esta pasta contém:
+
 - `index.html` (página principal)
 - `success.html` (página de confirmação)
 - `form-test.html` (página de teste - pode deletar)
@@ -59,10 +66,12 @@ Esta pasta contém:
 ### Opção A: Usar um cliente FTP (recomendado)
 
 **Clientes FTP gratuitos:**
+
 - **FileZilla** - https://filezilla-project.org/
 - **WinSCP** - https://winscp.net/
 
 **Passos:**
+
 1. Abra o FileZilla (ou outro cliente FTP)
 2. Conecte ao seu servidor:
    - Host: `ftp.seu-servidor.com`
@@ -110,6 +119,7 @@ $pass = "sua-senha"
 Sempre que fizer alterações no código:
 
 1. **Execute novamente o build:**
+
    ```powershell
    npm run generate
    ```
@@ -121,19 +131,23 @@ Sempre que fizer alterações no código:
 ## 🐛 Problemas comuns
 
 ### "npm run generate" dá erro
+
 - Certifique-se de que está na pasta `package`
 - Execute `npm install` primeiro
 - Verifique se há erros de compilação no código
 
 ### Site não carrega CSS/JS
+
 - Verifique se fez upload da pasta `_nuxt/` completa
 - Verifique se as permissões dos arquivos estão corretas (644 para arquivos, 755 para pastas)
 
 ### Formulário não funciona
-- Verifique se atualizou a URL `_next` no GetinTouch.vue
+
+- Verifique se atualizou a URL `_next` no Contacto.vue
 - Certifique-se de que verificou o email do FormSubmit.co
 
 ### Imagens não aparecem
+
 - Verifique se fez upload da pasta `images/` completa
 - Verifique caminhos relativos
 
@@ -165,13 +179,16 @@ seu-dominio.com/
 ## 🚀 Otimizações adicionais (opcional)
 
 ### Comprimir arquivos antes do upload:
+
 - Use ferramentas como Gzip para comprimir CSS/JS
 - Muitos servidores fazem isso automaticamente
 
 ### Cache:
+
 - Configure headers de cache no servidor (.htaccess se for Apache)
 
 ### CDN:
+
 - Considere usar Cloudflare (gratuito) para melhor performance
 
 ---
@@ -179,6 +196,7 @@ seu-dominio.com/
 ## 📞 Suporte
 
 Se encontrar problemas:
+
 1. Verifique os logs de erro no navegador (F12 → Console)
 2. Verifique se todos os arquivos foram enviados corretamente
 3. Teste localmente primeiro com `npm run preview` após o `generate`

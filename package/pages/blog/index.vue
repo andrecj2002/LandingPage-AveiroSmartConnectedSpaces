@@ -1,4 +1,0 @@
-<template>
-    <BlogsBlogGridBlogBanner/>
-    <BlogsBlogGrid/>
-</template>

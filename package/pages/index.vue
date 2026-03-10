@@ -4,38 +4,38 @@
   </section>
 
   <section id="about">
-    <HomepageAbout />
+    <HomepageSobre />
   </section>
 
   <section id="mission">
-    <HomepageMission />
+    <HomepageMissao />
   </section>
 
   <section id="benefits">
-    <HomepageBenefitsImpact />
+    <HomepageBeneficios />
   </section>
 
   <section id="target-audience">
-    <HomepageTargetAudience />
+    <HomepageDestinatarios />
   </section>
 
   <section id="services">
-    <HomepageWhatweDo />
+    <HomepageServicos />
   </section>
 
   <section id="onboarding">
-    <HomepagePortfolio />
+    <HomepageOnboarding />
   </section>
 
   <section id="impact">
-    <HomepageStatsAndFacts />
+    <HomepageImpacto />
   </section>
 
   <section id="partners">
-    <HomepagePartners />
+    <HomepageParceiros />
   </section>
 
   <section id="contact">
-    <HomepageGetinTouch />
+    <HomepageContacto />
   </section>
 </template>

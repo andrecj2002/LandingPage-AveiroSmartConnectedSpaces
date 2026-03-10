@@ -1,3 +1,0 @@
-<template>
-    <BlogsBlogDetails/>
-</template>
