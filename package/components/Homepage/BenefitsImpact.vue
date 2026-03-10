@@ -80,9 +80,9 @@ const impacts = [
       <!-- Header -->
       <v-row class="mb-10">
         <v-col cols="12" class="text-center">
-          <h2 class="text-h1 text-white mb-4 responsive-title">
+          <h3 class="text-h1 text-white mb-4 responsive-title">
             Benefícios do Ecossistema ASCS
-          </h2>
+          </h3>
           <p class="text-h5 text-white opacity-80 responsive-subtitle">
             Transforme a sua ideia em realidade com apoio especializado
           </p>

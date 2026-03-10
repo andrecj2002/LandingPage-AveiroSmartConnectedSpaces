@@ -58,15 +58,15 @@ const sectors = [
         <!-- RIGHT SIDE -->
         <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-8">
-            <div>
+            <div class="text-center">
               <h2 class="text-h2 text-dark mb-4">Destinatários</h2>
-              <p class="text-h6 text-dark opacity-80 mb-8">
+              <p class="text-h6 text-dark opacity-80 mb-8 mx-auto" style="max-width: 700px;">
                 A ASCS TB está desenhada para organizações que precisam de validar tecnologia em contexto operacional
               </p>
             </div>
 
             <!-- Target Group Cards -->
-            <v-row class="mb-6">
+            <v-row class="mb-6 justify-center">
               <v-col
                 v-for="(group, index) in targetGroups"
                 :key="index"
@@ -86,7 +86,7 @@ const sectors = [
             </v-row>
 
             <!-- Sectors Section -->
-            <div class="sectors-container pa-8 bg-primary">
+            <div class="sectors-container pa-8 bg-primary mx-auto" style="max-width: 900px;">
               <h3 class="text-h3 text-white text-center mb-6">
                 <Icon icon="mdi:domain" class="me-2" height="32" />
                 Setores e Verticais
