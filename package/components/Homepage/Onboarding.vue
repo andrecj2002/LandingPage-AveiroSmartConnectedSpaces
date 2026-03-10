@@ -51,7 +51,7 @@ const steps = [
           <SharedLeftSideDarkHeading number="06" title="Onboarding" />
         </v-col>
         <v-col cols="12" lg="8">
-          <div class="d-flex flex-column ga-96">
+          <div class="d-flex flex-column ga-8">
             <SharedCommonHeading
               class="mw-md-670"
               title="Como aderir?"
@@ -98,7 +98,7 @@ const steps = [
 
       <v-row class="mt-8">
         <v-col cols="12" class="text-center">
-          <v-btn color="primary" size="x-large" href="#contact" class="text-none px-8">
+          <v-btn color="primary" size="x-large" href="#contact" class="text-none px-10">
             Submeta o seu projeto
           </v-btn>
         </v-col>

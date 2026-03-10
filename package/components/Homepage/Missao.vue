@@ -8,12 +8,12 @@ import { Icon } from "@iconify/vue";
     <div class="container-lg">
       <v-row>
         <!-- LEFT SIDE -->
-        <v-col cols="12" xl="4" class="position-relative">
+        <v-col cols="12" lg="4" class="position-relative">
           <SharedLeftSideDarkHeading number="02" title="Missão" />
         </v-col>
 
         <!-- RIGHT SIDE -->
-        <v-col cols="12" xl="8">
+        <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-8">
             <div>
               <h2 class="text-h3 text-dark mb-4">Reduzir o "vale da morte"</h2>
@@ -27,7 +27,7 @@ import { Icon } from "@iconify/vue";
               <p class="text-body-1 text-dark opacity-80 mb-6">
                 <strong>Traga o seu piloto</strong> - Nós estruturamos o plano de teste, operacionalizamos o acesso às infraestruturas e entregamos evidência técnica de validação.
               </p>
-              <v-btn color="primary" size="large" href="#contact" class="text-none px-8">
+              <v-btn color="primary" size="x-large" href="#contact" class="text-none px-10">
                 Submeta o seu projeto
               </v-btn>
             </div>

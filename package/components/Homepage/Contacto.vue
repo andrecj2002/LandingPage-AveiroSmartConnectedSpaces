@@ -16,7 +16,7 @@ import { Icon } from "@iconify/vue";
           </div>
         </v-col>
         <v-col cols="12" lg="8">
-          <div class="d-flex flex-column ga-11">
+          <div class="d-flex flex-column ga-8">
             <SharedCommonHeading
               class="mw-670"
               title="Entre em contacto"

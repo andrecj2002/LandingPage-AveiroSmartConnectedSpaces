@@ -18,7 +18,7 @@ import pciBg from '~/assets/pci_edited_edited_min.jpg';
         <p class="hero-overlay-sublead">Infraestrutura de experimentação em ambiente real</p>
         <p class="hero-overlay-tagline">Demonstração, experimentação, teste e capacitação para acelerar pilotos digitais em espaços urbanos, portuários e marinhos</p>
         <div class="hero-overlay-ctas">
-          <v-btn color="white" size="large" href="#contact" class="text-none">Fale connosco</v-btn>
+          <v-btn color="white" size="x-large" href="#contact" class="text-none">Fale connosco</v-btn>
         </div>
       </div>
     </div>
