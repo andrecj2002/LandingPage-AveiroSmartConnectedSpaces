@@ -52,21 +52,21 @@ const sectors = [
       <v-row>
         <!-- LEFT SIDE -->
         <v-col cols="12" lg="4" class="position-relative">
-          <SharedLeftSideDarkHeading number="03" title="Para quem?" />
+          <SharedLeftSideDarkHeading number="04" title="Para quem?" />
         </v-col>
 
         <!-- RIGHT SIDE -->
         <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-8">
-            <div class="text-center">
-              <h2 class="text-h2 text-dark mb-4">Destinatários</h2>
-              <p class="text-h6 text-dark opacity-80 mb-8 mx-auto" style="max-width: 700px;">
+            <div>
+              <h2 class="text-h3 text-dark mb-4">Destinatários</h2>
+              <p class="text-body-1 text-dark opacity-80 mb-8">
                 A ASCS TB está desenhada para organizações que precisam de validar tecnologia em contexto operacional
               </p>
             </div>
 
             <!-- Target Group Cards -->
-            <v-row class="mb-6 justify-center">
+            <v-row class="mb-6">
               <v-col
                 v-for="(group, index) in targetGroups"
                 :key="index"
@@ -78,8 +78,8 @@ const sectors = [
                     <v-avatar size="80" :class="`bg-${group.color} mb-4`">
                       <Icon :icon="group.icon" height="40" class="text-white" />
                     </v-avatar>
-                    <h3 class="text-h4 text-dark mb-4">{{ group.title }}</h3>
-                    <p class="text-body-1 text-dark opacity-80">{{ group.description }}</p>
+                    <h3 class="text-h5 text-dark mb-4">{{ group.title }}</h3>
+                    <p class="text-body-2 text-dark opacity-90">{{ group.description }}</p>
                   </div>
                 </div>
               </v-col>
@@ -87,11 +87,11 @@ const sectors = [
 
             <!-- Sectors Section -->
             <div class="sectors-container pa-8 bg-primary mx-auto" style="max-width: 900px;">
-              <h3 class="text-h3 text-white text-center mb-6">
-                <Icon icon="mdi:domain" class="me-2" height="32" />
+              <h3 class="text-h5 text-white text-center mb-4">
+                <Icon icon="mdi:domain" class="me-2" height="28" />
                 Setores e Verticais
               </h3>
-              <p class="text-h6 text-white text-center opacity-90 mb-8">
+              <p class="text-body-1 text-white text-center opacity-80 mb-8">
                 Com forte componente digital
               </p>
               
@@ -117,7 +117,7 @@ const sectors = [
 
             <!-- CTA -->
             <div class="text-center mt-8">
-              <h3 class="text-h4 text-dark mb-4">
+              <h3 class="text-h5 text-dark mb-4">
                 Quer saber mais sobre como beneficiar da ASCS testbed?
               </h3>
               <v-btn color="primary" size="x-large" href="#contact" class="text-none px-10">

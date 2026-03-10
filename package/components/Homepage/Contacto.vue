@@ -8,9 +8,9 @@ import { Icon } from "@iconify/vue";
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4">
-          <SharedLeftSideDarkHeading number="05" title="Contacto" />
+          <SharedLeftSideDarkHeading number="09" title="Contacto" />
           <div class="mw-430 mt-lg-16 mt-8">
-            <p class="text-subtitle-1 text-dark opacity-70 pt-lg-8">
+            <p class="text-body-1 text-dark opacity-80 pt-lg-8">
               Pronto para testar a sua inovação num ambiente real? Entre em contacto connosco e descubra como podemos acelerar o seu projeto.
             </p>
           </div>
@@ -67,15 +67,14 @@ import { Icon } from "@iconify/vue";
               ></v-textarea>
 
               <v-btn
-                class="interactive-button w-100"
-                size="lg"
-                flat
+                color="secondary"
+                size="x-large"
                 type="submit"
+                class="text-none px-10"
+                elevation="8"
               >
-                <span class="label">Enviar Mensagem</span>
-                <v-avatar size="45" class="icon bg-white">
-                  <Icon icon="material-symbols:arrow-outward" height="20" />
-                </v-avatar>
+                <Icon icon="mdi:email-send" class="me-2" height="24" />
+                Enviar Mensagem
               </v-btn>
             </form>
           </div>

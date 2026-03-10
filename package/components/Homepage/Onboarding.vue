@@ -48,7 +48,7 @@ const steps = [
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4">
-          <SharedLeftSideDarkHeading number="05" title="Onboarding" />
+          <SharedLeftSideDarkHeading number="06" title="Onboarding" />
         </v-col>
         <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-96">
@@ -83,7 +83,7 @@ const steps = [
                     <Icon :icon="step.icon" height="30" class="text-white" />
                   </v-avatar>
                   <h3 class="text-h5 mb-2">{{ step.title }}</h3>
-                  <p class="text-subtitle-2 text-dark opacity-70">{{ step.description }}</p>
+                  <p class="text-body-2 text-dark opacity-80">{{ step.description }}</p>
                   
                   <!-- Arrow connector (except for last step) -->
                   <div v-if="index < steps.length - 1" class="arrow-connector d-none d-lg-block">

@@ -58,7 +58,7 @@ const currentSlide = ref(0);
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4" class="position-relative">
-          <SharedLeftSideLightHeading number="04" title="Serviços" />
+          <SharedLeftSideLightHeading number="05" title="Serviços" />
         </v-col>
 
         <v-col cols="12" lg="8">
@@ -164,14 +164,14 @@ const currentSlide = ref(0);
                             class="text-white"
                           />
                         </v-avatar>
-                        <h2 class="text-h3 service-title mb-6">
+                        <h2 class="text-h5 service-title mb-6">
                           {{ service.title }}
                         </h2>
                         <ul class="service-list text-left">
                           <li
                             v-for="(item, i) in service.items"
                             :key="i"
-                            class="mb-3 text-body-1 service-item"
+                            class="mb-3 text-body-2 service-item"
                           >
                             <Icon
                               icon="mdi:check-circle"
@@ -258,15 +258,15 @@ const currentSlide = ref(0);
     <div class="container-lg">
       <v-row class="mt-8">
         <v-col cols="12" class="text-center">
-          <v-btn class="interactive-button" href="#contact" size="lg" flat>
-            <span class="label">Comece a testar hoje</span>
-            <v-avatar size="45" class="icon bg-white">
-              <Icon
-                icon="material-symbols:arrow-outward"
-                class="text-primary"
-                height="20"
-              />
-            </v-avatar>
+          <v-btn
+            color="secondary"
+            size="x-large"
+            href="#contact"
+            class="text-none px-10"
+            elevation="8"
+          >
+            <Icon icon="mdi:rocket-launch" class="me-2" height="24" />
+            Comece a testar hoje
           </v-btn>
         </v-col>
       </v-row>

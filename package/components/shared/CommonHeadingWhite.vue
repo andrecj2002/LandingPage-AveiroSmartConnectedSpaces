@@ -6,7 +6,7 @@ const props = defineProps({
 </script>
 <template>
   <div class="d-flex flex-column ga-5">
-    <h2 class="text-h2 text-white">{{ title }}</h2>
-    <p class="text-subtitle-1 text-white opacity-70">{{ subtitle }}</p>
+    <h2 class="text-h3 text-white">{{ title }}</h2>
+    <p class="text-body-1 text-white opacity-80">{{ subtitle }}</p>
   </div>
 </template>

@@ -19,10 +19,10 @@ import ManImage from "/images/background/contact-banner.png";
               width="44"
               class="icon-rotate"
             />
-            <p class="text-white text-subtitle-1 mb-0">
-              <span class="opacity-70">Ready to</span>
+            <p class="text-white text-body-1 mb-0">
+              <span class="opacity-80">Ready to</span>
               <span class="text-primary opacity-100"> start something </span>
-              <span class="opacity-70"
+              <span class="opacity-80"
                 >great? Reach out we’d love to hear from you.</span
               >
             </p>

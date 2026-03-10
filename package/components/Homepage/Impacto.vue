@@ -1,89 +1,6 @@
 <script setup lang="ts">
 import { Icon } from "@iconify/vue";
-import { ref, onMounted } from "vue";
 import ascsLines from '~/assets/backgroundless .svg';
-
-interface CounterItem {
-  value: number;
-  suffix: string;
-  caption: string;
-}
-
-const items = ref<CounterItem[]>([
-  {
-    value: 59,
-    suffix: "",
-    caption: "Produtos/serviços piloto validados até 2025",
-  },
-  {
-    value: 100,
-    suffix: "%",
-    caption: "Testes em ambiente real",
-  },
-  {
-    value: 1,
-    suffix: "#",
-    caption: "Líder europeu em apoio a PMEs/startups",
-  },
-]);
-
-// Animated values
-const animatedValues = ref<number[]>(items.value.map(() => 0));
-
-onMounted(() => {
-  items.value.forEach((item, index) => {
-    animateCounter(item.value, index);
-  });
-});
-
-function animateCounter(target: number, index: number) {
-  const duration = 2000;
-  const frameDuration = 1000 / 60;
-  const totalFrames = Math.round(duration / frameDuration);
-  let frame = 0;
-
-  const counterInterval = setInterval(() => {
-    frame++;
-    const progress = frame / totalFrames;
-    const current = Math.floor(target * progress);
-    animatedValues.value[index] = current;
-
-    if (frame === totalFrames) {
-      animatedValues.value[index] = target;
-      clearInterval(counterInterval);
-    }
-  }, frameDuration);
-}
-
-function formatNumber(value: number, suffix: string) {
-  if (suffix === "K") {
-    return `${Math.floor(value / 1000)}K`;
-  } else if (suffix === "M") {
-    const millions = value / 1_000_000;
-    return Number.isInteger(millions)
-      ? `${millions}M`
-      : `${millions.toFixed(1)}M`;
-  } else if (suffix === "%") {
-    return `${value}%`;
-  } else if (suffix === "#") {
-    return `#${value}`;
-  } else {
-    return `${value}`;
-  }
-}
-
-const scrollTo = (hash: string) => {
-  try {
-    const el = document.querySelector(hash);
-    if (el) {
-      (el as HTMLElement).scrollIntoView({ behavior: "smooth" });
-    } else {
-      window.location.hash = hash;
-    }
-  } catch (e) {
-    // noop
-  }
-};
 </script>
 
 <template>
@@ -92,39 +9,67 @@ const scrollTo = (hash: string) => {
     <div class="container-lg">
       <v-row>
         <v-col cols="12" lg="4">
-          <SharedLeftSideDarkHeading number="06" title="Impacto" />
+          <SharedLeftSideDarkHeading number="07" title="Impacto" />
         </v-col>
         <v-col cols="12" lg="8">
-          <div class="d-flex flex-column ga-11">
-            <SharedCommonHeading
-              class="mw-md-575"
-              title="Impacto Esperado"
-              subtitle="A ASCS TB está orientada a resultados mensuráveis, alinhados com transição digital e competitividade empresarial."
-            />
-
-            <div class="d-flex flex-sm-row flex-column ga-8">
-              <div
-                class="d-flex flex-column ga-3 flex-grow-1 border-t "
-                v-for="(item, index) in items"
-                :key="index"
-              >
-                <h3 class="text-60 text-dark pt-6">
-                  {{ formatNumber(animatedValues[index], item.suffix) }}+
-                </h3>
-                <p
-                  class="text-subtitle-2 text-dark opacity-70 font-weight-regular"
-                >
-                  {{ item.caption }}
-                </p>
-              </div>
+          <div class="d-flex flex-column ga-8">
+            <div>
+              <h2 class="text-h3 text-dark mb-4">Impacto Esperado</h2>
+              <p class="text-body-1 text-dark opacity-80 mb-6">
+                A ASCS TB está orientada a resultados mensuráveis, alinhados com transição digital e competitividade:
+              </p>
             </div>
 
-            <v-btn class="interactive-button" size="lg" flat @click.prevent="scrollTo('#about')">
-              <span class="label">Saiba mais sobre o nosso impacto</span>
-              <v-avatar size="45" class="icon bg-white">
-                <Icon icon="material-symbols:arrow-outward" height="20" />
-              </v-avatar>
-            </v-btn>
+            <!-- Impact Points -->
+            <div class="impact-points">
+              <div class="impact-item mb-4">
+                <div class="d-flex ga-3">
+                  <Icon icon="mdi:target" height="24" class="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 class="text-h5 text-dark mb-2">Meta de referência</h3>
+                    <p class="text-body-1 text-dark opacity-80">
+                      59 pilotos testados e validados
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="impact-item mb-4">
+                <div class="d-flex ga-3">
+                  <Icon icon="mdi:trending-up" height="24" class="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 class="text-h5 text-dark mb-2">Competitividade empresarial</h3>
+                    <p class="text-body-1 text-dark opacity-80">
+                      Suporte à entrada em novos mercados/segmentos, aumento de internacionalização e reforço de equipas qualificadas.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="impact-item mb-4">
+                <div class="d-flex ga-3">
+                  <Icon icon="mdi:network" height="24" class="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 class="text-h5 text-dark mb-2">Criação de ecossistema e reputação</h3>
+                    <p class="text-body-1 text-dark opacity-80">
+                      Reforçar Aveiro como polo de experimentação em conectividade, sensorização e dados, com replicabilidade nacional e projeção internacional.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="impact-item">
+                <div class="d-flex ga-3">
+                  <Icon icon="mdi:leaf" height="24" class="text-primary flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 class="text-h5 text-dark mb-2">Desenvolvimento Sustentável</h3>
+                    <p class="text-body-1 text-dark opacity-80">
+                      Apoia a criação de cidades inteligentes e territórios sustentáveis
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </v-col>
       </v-row>
@@ -140,6 +85,15 @@ const scrollTo = (hash: string) => {
 </template>
 
 <style scoped lang="scss">
+.impact-item {
+  padding: 8px 0;
+  transition: transform 0.2s ease;
+  
+  &:hover {
+    transform: translateX(8px);
+  }
+}
+
 .ascs-lines-left {
   position: absolute;
   left: -100px;
