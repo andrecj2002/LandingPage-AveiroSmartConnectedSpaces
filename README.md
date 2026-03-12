@@ -11,6 +11,8 @@
 
 1. **Instalar dependências**
 
+   Usar terminal a partir da página "package"
+
 ```bash
 npm install
 ```
