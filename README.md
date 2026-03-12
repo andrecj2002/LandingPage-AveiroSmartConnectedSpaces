@@ -1,5 +1,34 @@
-# Aveiro Smart Connected Spaces — Aveiro Test Bed
+# Aveiro Smart Connected Spaces — Landing Page
 
-This repository is a Nuxt 3 starter site rebranded for the Aveiro Smart
-Connected Spaces Test Bed. Visual identity assets are available under
-`package/assets/toolkit-ASCS`.
+## Instalação Simples
+
+### Pré-requisitos
+
+- Node.js (versão 16 ou superior)
+- npm ou pnpm
+
+### Passos de Instalação
+
+1. **Instalar dependências**
+
+```bash
+npm install
+```
+
+2. **Iniciar servidor de desenvolvimento**
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível em `http://localhost:3000`
+
+### Compilar para Produção
+
+Para criar a versão final do projeto:
+
+```bash
+npm run build
+```
+
+Para mais informações, consulte a [documentação do Nuxt](https://nuxt.com/docs/getting-started/introduction).
