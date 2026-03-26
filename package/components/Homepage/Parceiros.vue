@@ -8,7 +8,7 @@ const partners = [
     name: 'PCI – Parque de Ciência e Inovação', 
     shortName: 'PCI – Parque de Ciência e Inovação (líder)',
     logo: new URL('~/assets/PCI.png', import.meta.url).href, 
-    url: 'https://www.pci.pt',
+    url: 'http://www.pci.pt',
     description: 'Coordenação, operação e ligação ao ecossistema; incubação/aceleração e capacidades de design e desenvolvimento de negócio.'
   },
   { 
@@ -54,10 +54,12 @@ const partners = [
     description: 'Ligação à economia do mar e cadeias de valor Blue-Tech, com capacidade de ativação de mercado.'
   },
   { 
-    name: 'Municípios de Aveiro e Ílhavo', 
-    shortName: 'Municípios de Aveiro e Ílhavo (colaboração)',
-    logo: new URL('~/assets/cm-aveiro.png', import.meta.url).href, 
+    name: 'Município de Aveiro e Município de Ílhavo', 
+    shortName: 'Município de Aveiro e Município de Ílhavo',
+    logo: new URL('~/assets/cm-aveiro.png', import.meta.url).href,
+    logo2: new URL('~/assets/cm-ilhavo.png', import.meta.url).href,
     url: 'https://www.cm-aveiro.pt',
+    url2: 'https://www.cm-ilhavo.pt',
     description: 'Acesso a território e infraestruturas para testes em contexto real.'
   },
 ];
@@ -66,21 +68,21 @@ const openPanel = ref<number | undefined>(undefined);
 </script>
 
 <template>
-  <div class="partners-section bg-surface">
+  <div class="partners-section bg-primary">
     <SharedSectionSpacer />
     <div class="container-lg">
       <v-row>
         <!-- LEFT SIDE -->
         <v-col cols="12" lg="4" class="position-relative">
-          <SharedLeftSideDarkHeading number="08" title="Parceiros" />
+          <SharedLeftSideLightHeading number="08" title="Parceiros" />
         </v-col>
 
         <!-- RIGHT SIDE -->
         <v-col cols="12" lg="8">
           <div class="d-flex flex-column ga-8">
             <div>
-              <h2 class="text-h3 text-dark mb-4">Parceiros do Consórcio</h2>
-              <p class="text-body-1 text-dark opacity-80 mb-8">
+              <h2 class="text-h3 text-white mb-4">Parceiros do Consórcio</h2>
+              <p class="text-body-1 text-white opacity-80 mb-8">
                 Ecossistema colaborativo de excelência para acelerar a inovação
               </p>
             </div>
@@ -93,7 +95,7 @@ const openPanel = ref<number | undefined>(undefined);
                 :value="index"
                 class="partner-panel mb-3"
               >
-                <v-expansion-panel-title class="partner-header">
+                <v-expansion-panel-title class="partner-header bg-white">
                   <div class="d-flex align-center ga-4">
                     <div class="partner-logo-container">
                       <img 
@@ -102,24 +104,45 @@ const openPanel = ref<number | undefined>(undefined);
                         class="partner-logo-small"
                       />
                     </div>
+                    <div v-if="partner.logo2" class="partner-logo-container">
+                      <img 
+                        :src="partner.logo2" 
+                        :alt="partner.name"
+                        class="partner-logo-small"
+                      />
+                    </div>
                     <h3 class="text-h5 text-dark mb-0">{{ partner.shortName }}</h3>
                   </div>
                 </v-expansion-panel-title>
-                <v-expansion-panel-text>
+                <v-expansion-panel-text class="bg-white">
                   <p class="text-body-1 text-dark opacity-80 mt-2">
                     {{ partner.description }}
                   </p>
-                  <v-btn
-                    :href="partner.url"
-                    target="_blank"
-                    variant="text"
-                    color="primary"
-                    class="text-none mt-2 px-0"
-                    size="small"
-                  >
-                    Visitar website
-                    <Icon icon="mdi:open-in-new" class="ml-1" height="16" />
-                  </v-btn>
+                  <div class="d-flex ga-4 flex-wrap mt-2">
+                    <v-btn
+                      :href="partner.url"
+                      target="_blank"
+                      variant="text"
+                      color="primary"
+                      class="text-none px-0"
+                      size="small"
+                    >
+                      Visitar website {{ partner.url2 ? '(Aveiro)' : '' }}
+                      <Icon icon="mdi:open-in-new" class="ml-1" height="16" />
+                    </v-btn>
+                    <v-btn
+                      v-if="partner.url2"
+                      :href="partner.url2"
+                      target="_blank"
+                      variant="text"
+                      color="primary"
+                      class="text-none px-0"
+                      size="small"
+                    >
+                      Visitar website (Ílhavo)
+                      <Icon icon="mdi:open-in-new" class="ml-1" height="16" />
+                    </v-btn>
+                  </div>
                 </v-expansion-panel-text>
               </v-expansion-panel>
             </v-expansion-panels>

@@ -81,7 +81,7 @@ const benefits = [
                 :key="index"
                 cols="12"
                 sm="6"
-                lg="3"
+                md="3"
               >
           <div class="benefit-card pa-6 h-100">
             <div class="d-flex flex-column align-center text-center h-100">

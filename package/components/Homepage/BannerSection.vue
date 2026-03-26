@@ -99,7 +99,7 @@ import pciBg from '~/assets/pci_edited_edited_min.jpg';
   z-index: 12;
   max-width: 600px;
   width: 100%;
-  text-align: right;
+  text-align: left;
   color: #ffffff;
   padding: 32px 40px;
   margin: 0;
@@ -108,13 +108,13 @@ import pciBg from '~/assets/pci_edited_edited_min.jpg';
   @media (max-width: 960px) {
     max-width: 500px;
     padding: 24px 20px;
-    text-align: right;
+    text-align: left;
   }
   
   @media (max-width: 600px) {
     max-width: 100%;
     padding: 20px 10px;
-    text-align: right;
+    text-align: left;
   }
 }
 .hero-overlay-lead {
@@ -140,15 +140,15 @@ import pciBg from '~/assets/pci_edited_edited_min.jpg';
 .hero-overlay-ctas {
   display: flex;
   gap: 12px;
-  justify-content: flex-end;
+  justify-content: flex-start;
   flex-wrap: wrap;
   
   @media (max-width: 960px) {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
   
   @media (max-width: 600px) {
-    justify-content: flex-end;
+    justify-content: flex-start;
   }
 }
 

@@ -31,9 +31,13 @@ import { Icon } from "@iconify/vue";
                   <div class="d-flex flex-column align-center text-center h-100">
                     <Icon icon="mdi:city-variant" height="48" class="text-white mb-4" />
                     <h4 class="text-h5 text-white mb-3">Ambiente Real Multi-Contexto</h4>
-                    <p class="text-body-2 text-white opacity-90">
-                      Cidade, corredor de mobilidade, porto, ria e mar, com conectividade, sensorização e computação
-                    </p>
+                    <ul class="text-body-2 text-white opacity-90 text-left bullet-list">
+                      <li>Cidade</li>
+                      <li>Corredor de mobilidade</li>
+                      <li>Porto</li>
+                      <li>Ria e mar</li>
+                      <li>Conectividade, sensorização e computação</li>
+                    </ul>
                   </div>
                 </div>
               </v-col>
@@ -43,9 +47,12 @@ import { Icon } from "@iconify/vue";
                   <div class="d-flex flex-column align-center text-center h-100">
                     <Icon icon="mdi:access-point-network" height="48" class="text-white mb-4" />
                     <h4 class="text-h5 text-white mb-3">Acesso End-to-End</h4>
-                    <p class="text-body-2 text-white opacity-90">
-                      Plataformas, dados e recursos técnicos para evoluir soluções TRL 4/5–9
-                    </p>
+                    <ul class="text-body-2 text-white opacity-90 text-left bullet-list">
+                      <li>Plataformas</li>
+                      <li>Dados</li>
+                      <li>Recursos técnicos</li>
+                      <li>Evoluir soluções TRL 4/5–9</li>
+                    </ul>
                   </div>
                 </div>
               </v-col>
@@ -55,16 +62,17 @@ import { Icon } from "@iconify/vue";
                   <div class="d-flex flex-column align-center text-center h-100">
                     <Icon icon="mdi:account-group" height="48" class="text-white mb-4" />
                     <h4 class="text-h5 text-white mb-3">Consórcio de Referência</h4>
-                    <p class="text-body-2 text-white opacity-90">
-                      Para reduzir risco e acelerar entrada no mercado
-                    </p>
+                    <ul class="text-body-2 text-white opacity-90 text-left bullet-list">
+                      <li>Reduzir risco</li>
+                      <li>Acelerar entrada no mercado</li>
+                    </ul>
                   </div>
                 </div>
               </v-col>
             </v-row>
 
             <!-- CTA -->
-            <div class="text-center mt-8">
+            <div class="cta-wrapper mt-8">
               <p class="text-body-1 text-dark opacity-80 mb-6">
                 <strong>Traga o seu piloto</strong> - Nós estruturamos o plano de teste, operacionalizamos o acesso às infraestruturas e entregamos evidência técnica de validação.
               </p>
@@ -93,6 +101,28 @@ import { Icon } from "@iconify/vue";
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.bullet-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+  
+  li {
+    margin-bottom: 8px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.cta-wrapper {
+  max-width: 66.666%; // 2/3 da largura
+  
+  @media (max-width: 960px) {
+    max-width: 100%; // Full width em tablets e mobile
   }
 }
 </style>

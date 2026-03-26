@@ -78,9 +78,9 @@ const tiles = [
 .tile-4, .tile-5, .tile-6 {
   grid-row: 2;
 }
-.tile-4 { grid-column: 1; }
-.tile-5 { grid-column: 2; }
-.tile-6 { grid-column: 3; }
+.tile-4 { grid-column: 1 / 3; } // Logo ASCS spans 2 columns
+.tile-5 { grid-column: 3; }
+.tile-6 { grid-column: 4; }
 
 // Linha 3: tiles 7-8 (2 colunas)
 .tile-7, .tile-8 {
