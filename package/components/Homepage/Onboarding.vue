@@ -41,6 +41,7 @@ const steps = [
 ];
 </script>
 
+
 <template>
   <div class="position-relative bg-darkgray" id="onboarding">
     <!-- Section Spacer -->
