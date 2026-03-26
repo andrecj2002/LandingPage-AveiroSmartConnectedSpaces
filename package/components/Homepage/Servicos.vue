@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { Icon } from "@iconify/vue";
 
 const services = [
@@ -48,7 +48,32 @@ const services = [
   },
 ];
 
-const currentSlide = ref(0);
+const currentIndex = ref(1); // Começa com o segundo item como centro
+
+const visibleServices = computed(() => {
+  const result = [];
+  for (let i = -1; i <= 1; i++) {
+    const index = (currentIndex.value + i + services.length) % services.length;
+    result.push({
+      service: services[index],
+      index: index,
+      position: i // -1 = prev, 0 = current, 1 = next
+    });
+  }
+  return result;
+});
+
+const nextSlide = () => {
+  currentIndex.value = (currentIndex.value + 1) % services.length;
+};
+
+const prevSlide = () => {
+  currentIndex.value = (currentIndex.value - 1 + services.length) % services.length;
+};
+
+const goToSlide = (index: number) => {
+  currentIndex.value = index;
+};
 </script>
 
 <template>
@@ -77,178 +102,87 @@ const currentSlide = ref(0);
     <div class="mt-12">
       <div class="full-width-carousel">
           <div class="carousel-container">
-            <v-carousel
-              v-model="currentSlide"
-              height="580"
-              show-arrows="hover"
-              :cycle="false"
-              class="services-carousel"
-              hide-delimiters
-            >
-              <v-carousel-item
-                v-for="(service, index) in services"
-                :key="index"
-              >
-                <div class="carousel-slide-wrapper">
-                  <!-- Previous card preview -->
-                  <div class="preview-card prev-card">
-                    <v-sheet class="pa-6 service-card-preview elevation-4">
-                      <div class="d-flex flex-column text-center">
-                        <v-avatar size="50" class="mb-3 mx-auto bg-primary">
-                          <Icon
-                            :icon="
-                              services[
-                                (index - 1 + services.length) % services.length
-                              ].icon
-                            "
-                            height="26"
-                            class="text-white"
-                          />
-                        </v-avatar>
-                        <h3 class="text-h5 service-title mb-3">
-                          {{
-                            services[
-                              (index - 1 + services.length) % services.length
-                            ].title
-                          }}
-                        </h3>
-                        <ul class="preview-list text-left">
-                          <li
-                            v-for="(item, i) in services[
-                              (index - 1 + services.length) % services.length
-                            ].items.slice(0, 3)"
-                            :key="i"
-                            class="mb-2 text-body-2"
-                          >
-                            <Icon
-                              icon="mdi:check-circle"
-                              class="me-1 text-primary"
-                              height="16"
-                            />
-                            {{
-                              item.length > 50
-                                ? item.substring(0, 50) + "..."
-                                : item
-                            }}
-                          </li>
-                        </ul>
-                        <p
-                          v-if="
-                            services[
-                              (index - 1 + services.length) % services.length
-                            ].items.length > 3
-                          "
-                          class="text-caption mt-2 opacity-70"
+            <!-- Navigation arrows -->
+            <button class="carousel-nav prev" @click="prevSlide" aria-label="Previous">
+              <Icon icon="mdi:chevron-left" height="32" />
+            </button>
+            <button class="carousel-nav next" @click="nextSlide" aria-label="Next">
+              <Icon icon="mdi:chevron-right" height="32" />
+            </button>
+
+            <!-- Carousel wrapper -->
+            <div class="carousel-track-wrapper">
+              <transition-group name="slide" tag="div" class="carousel-track">
+                <div
+                  v-for="item in visibleServices"
+                  :key="item.index"
+                  class="carousel-item"
+                  :class="{
+                    'prev-position': item.position === -1,
+                    'current-position': item.position === 0,
+                    'next-position': item.position === 1
+                  }"
+                >
+                  <!-- Preview card (prev/next) -->
+                  <v-sheet 
+                    v-if="item.position !== 0"
+                    class="pa-6 service-card-preview elevation-4"
+                  >
+                    <div class="d-flex flex-column text-center">
+                      <v-avatar size="50" class="mb-3 mx-auto bg-primary">
+                        <Icon :icon="item.service.icon" height="26" class="text-white" />
+                      </v-avatar>
+                      <h3 class="text-h5 service-title mb-3">{{ item.service.title }}</h3>
+                      <ul class="preview-list text-left">
+                        <li
+                          v-for="(serviceItem, i) in item.service.items.slice(0, 3)"
+                          :key="i"
+                          class="mb-2 text-body-2"
                         >
-                          +{{
-                            services[
-                              (index - 1 + services.length) % services.length
-                            ].items.length - 3
-                          }}
-                          mais
-                        </p>
-                      </div>
-                    </v-sheet>
-                  </div>
+                          <Icon icon="mdi:check-circle" class="me-1 text-primary" height="16" />
+                          {{ serviceItem.length > 50 ? serviceItem.substring(0, 50) + "..." : serviceItem }}
+                        </li>
+                      </ul>
+                      <p v-if="item.service.items.length > 3" class="text-caption mt-2 opacity-70">
+                        +{{ item.service.items.length - 3 }} mais
+                      </p>
+                    </div>
+                  </v-sheet>
 
                   <!-- Current card -->
-                  <div class="current-card">
-                    <v-sheet class="pa-10 service-card elevation-12">
-                      <div
-                        class="d-flex flex-column align-center text-center h-100"
-                      >
-                        <v-avatar size="80" class="mb-5 bg-primary">
-                          <Icon
-                            :icon="service.icon"
-                            height="40"
-                            class="text-white"
-                          />
-                        </v-avatar>
-                        <h2 class="text-h5 service-title mb-6">
-                          {{ service.title }}
-                        </h2>
-                        <ul class="service-list text-left">
-                          <li
-                            v-for="(item, i) in service.items"
-                            :key="i"
-                            class="mb-3 text-body-2 service-item"
-                          >
-                            <Icon
-                              icon="mdi:check-circle"
-                              class="me-2 text-primary"
-                              height="20"
-                            />
-                            {{ item }}
-                          </li>
-                        </ul>
-                      </div>
-                    </v-sheet>
-                  </div>
-
-                  <!-- Next card preview -->
-                  <div class="preview-card next-card">
-                    <v-sheet class="pa-6 service-card-preview elevation-4">
-                      <div class="d-flex flex-column text-center">
-                        <v-avatar size="50" class="mb-3 mx-auto bg-primary">
-                          <Icon
-                            :icon="services[(index + 1) % services.length].icon"
-                            height="26"
-                            class="text-white"
-                          />
-                        </v-avatar>
-                        <h3 class="text-h5 service-title mb-3">
-                          {{ services[(index + 1) % services.length].title }}
-                        </h3>
-                        <ul class="preview-list text-left">
-                          <li
-                            v-for="(item, i) in services[
-                              (index + 1) % services.length
-                            ].items.slice(0, 3)"
-                            :key="i"
-                            class="mb-2 text-body-2"
-                          >
-                            <Icon
-                              icon="mdi:check-circle"
-                              class="me-1 text-primary"
-                              height="16"
-                            />
-                            {{
-                              item.length > 50
-                                ? item.substring(0, 50) + "..."
-                                : item
-                            }}
-                          </li>
-                        </ul>
-                        <p
-                          v-if="
-                            services[(index + 1) % services.length].items
-                              .length > 3
-                          "
-                          class="text-caption mt-2 opacity-70"
+                  <v-sheet 
+                    v-else
+                    class="pa-10 service-card elevation-12"
+                  >
+                    <div class="d-flex flex-column align-center text-center h-100">
+                      <v-avatar size="80" class="mb-5 bg-primary">
+                        <Icon :icon="item.service.icon" height="40" class="text-white" />
+                      </v-avatar>
+                      <h2 class="text-h5 service-title mb-6">{{ item.service.title }}</h2>
+                      <ul class="service-list text-left">
+                        <li
+                          v-for="(serviceItem, i) in item.service.items"
+                          :key="i"
+                          class="mb-3 text-body-2 service-item"
                         >
-                          +{{
-                            services[(index + 1) % services.length].items
-                              .length - 3
-                          }}
-                          mais
-                        </p>
-                      </div>
-                    </v-sheet>
-                  </div>
+                          <Icon icon="mdi:check-circle" class="me-2 text-primary" height="20" />
+                          {{ serviceItem }}
+                        </li>
+                      </ul>
+                    </div>
+                  </v-sheet>
                 </div>
-              </v-carousel-item>
-            </v-carousel>
+              </transition-group>
+            </div>
 
             <!-- Custom indicators below -->
-            <div
-              class="custom-indicators d-flex justify-center align-center ga-2 mt-6"
-            >
+            <div class="custom-indicators d-flex justify-center align-center ga-2 mt-6">
               <div
                 v-for="(service, index) in services"
                 :key="index"
                 class="indicator-dot"
-                :class="{ active: currentSlide === index }"
-                @click="currentSlide = index"
+                :class="{ active: currentIndex === index }"
+                @click="goToSlide(index)"
               ></div>
             </div>
           </div>
@@ -291,68 +225,100 @@ const currentSlide = ref(0);
   position: relative;
   overflow: visible;
   padding: 0;
+  min-height: 600px;
 }
 
-.services-carousel {
-  :deep(.v-carousel__controls) {
-    display: none;
-  }
-  
-  :deep(.v-window__container) {
-    overflow: visible !important;
-  }
+.carousel-track-wrapper {
+  position: relative;
+  height: 580px;
+  overflow: visible;
 }
 
-.carousel-slide-wrapper {
+.carousel-track {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
   gap: 40px;
-  padding: 0;
+  position: relative;
 
   @media (max-width: 960px) {
     padding: 0 20px;
   }
 }
 
-.current-card {
-  flex: 0 0 auto;
-  max-width: 850px;
-  width: 850px;
-  z-index: 2;
-
-  @media (max-width: 960px) {
-    width: 85%;
+.carousel-item {
+  position: absolute;
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, left, right;
+  
+  &.prev-position {
+    left: 5%;
+    opacity: 1;
+    transform: scale(0.88);
+    z-index: 1;
+    width: 700px;
+    filter: brightness(0.92);
+    
+    @media (max-width: 960px) {
+      display: none;
+    }
+  }
+  
+  &.current-position {
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+    z-index: 2;
+    width: 850px;
+    filter: brightness(1);
+    
+    @media (max-width: 960px) {
+      width: 85%;
+    }
+  }
+  
+  &.next-position {
+    right: 5%;
+    opacity: 1;
+    transform: scale(0.88);
+    z-index: 1;
+    width: 700px;
+    filter: brightness(0.92);
+    
+    @media (max-width: 960px) {
+      display: none;
+    }
   }
 }
 
-.preview-card {
-  flex: 0 0 auto;
-  width: 700px;
-  max-width: 700px;
-  opacity: 0.4;
-  transition: opacity 0.3s ease;
-
-  @media (max-width: 960px) {
-    display: none;
-  }
-
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background-color: rgba(14, 9, 113, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  
   &:hover {
-    opacity: 0.6;
+    background-color: rgb(14, 9, 113);
   }
-
-  .service-card-preview {
-    border-radius: 20px;
-    overflow: hidden;
+  
+  &.prev {
+    left: 20px;
   }
-
-  &.prev-card {
-    margin-right: -500px;
-  }
-
-  &.next-card {
-    margin-left: -500px;
+  
+  &.next {
+    right: 20px;
   }
 }
 
@@ -424,29 +390,25 @@ const currentSlide = ref(0);
   color: #1a1a1a;
 }
 
-/* Estilo das setas do carrossel - mais visíveis */
-.services-carousel :deep(.v-btn) {
-  color: white !important;
-  background-color: rgba(14, 9, 113, 0.7) !important;
-  z-index: 3;
-
-  &:hover {
-    background-color: rgb(14, 9, 113) !important;
-  }
-}
-
-.services-carousel :deep(.v-btn--icon) {
-  background-color: rgba(14, 9, 113, 0.7) !important;
-
-  &:hover {
-    background-color: rgb(14, 9, 113) !important;
-  }
-}
-
 .service-list {
   list-style: none;
   padding: 0;
   max-width: 100%;
   margin: 0 auto;
+}
+
+// Slide transitions
+.slide-enter-active {
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.slide-leave-active {
+  transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.slide-enter-from,
+.slide-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
 }
 </style>
