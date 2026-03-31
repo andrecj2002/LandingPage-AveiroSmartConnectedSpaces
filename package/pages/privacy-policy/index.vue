@@ -1,113 +1,116 @@
-<script setup lang="ts">
-import AnimatedIcon from "/images/svgs/astrisk-icon.svg";
-import MainImage from "/images/background/privacy-policy.png";
-</script>
-
 <template>
-  <div class="common-banner position-relative">
-    <v-img :src="MainImage" cover height="650" class="w-100"></v-img>
-    <div class="banner-overlay"></div>
+  <div class="bg-darkgray" id="privacy-policy">
+    <SharedSectionSpacer />
+
     <div class="container-lg">
-      <div class="common-banner-content">
-        <div class="mw-460">
-          <!-- Top row: icon + paragraph -->
-          <div class="d-flex ga-6">
-            <img
-              :src="AnimatedIcon"
-              alt="icon"
-              height="44"
-              width="44"
-              class="icon-rotate"
+      <v-row>
+        <v-col cols="12" lg="4">
+          <SharedLeftSideDarkHeading number="09" title="Privacidade" />
+        </v-col>
+
+        <v-col cols="12" lg="8">
+          <div class="d-flex flex-column ga-8">
+            <SharedCommonHeading
+              class="mw-md-670"
+              title="Política de Privacidade"
+              subtitle="Testbed Aveiro Smart Connected Spaces"
             />
-            <p class="text-white text-subtitle-1 mb-0">
-              <span class="opacity-70">Understand the</span>
-              <span class="text-primary opacity-100"> Rules & Guidelines </span>
-              <span class="opacity-70">Before Using Our Services</span>
-            </p>
+
+            <div class="policy-card pa-6 pa-md-8">
+              <p class="text-body-1 text-dark opacity-90 mb-0">
+                A Testbed Aveiro Smart Connected Spaces, sediada no PCI · Creative Science Park Aveiro Region, valoriza a privacidade dos seus utilizadores e assume o compromisso de proteger os dados pessoais partilhados connosco, em estrita conformidade com o Regulamento Geral sobre a Proteção de Dados (RGPD).
+              </p>
+            </div>
+
+            <div class="policy-sections d-flex flex-column ga-5">
+              <section class="policy-card pa-6 pa-md-8">
+                <h3 class="text-h5 text-dark mb-4">1. Recolha e Tratamento de Dados</h3>
+                <p class="text-body-1 text-dark opacity-90 mb-4">
+                  O presente website foi desenhado para ser informativo e não intrusivo. A única forma de recolha de dados pessoais ocorre através do preenchimento voluntário do Formulário de Contacto.
+                </p>
+                <p class="text-body-1 text-dark opacity-90 mb-3">
+                  Os dados recolhidos (nome, e-mail e eventuais informações incluídas na mensagem) destinam-se exclusivamente a:
+                </p>
+                <ul class="policy-list mb-0">
+                  <li>Responder a pedidos de informação;</li>
+                  <li>Analisar propostas de colaboração ou submissão de projetos à Testbed.</li>
+                </ul>
+              </section>
+
+              <section class="policy-card pa-6 pa-md-8">
+                <h3 class="text-h5 text-dark mb-4">2. Armazenamento e Segurança</h3>
+                <p class="text-body-1 text-dark opacity-90 mb-0">
+                  Os dados inseridos no formulário não são armazenados em base de dados no servidor do website. O formulário atua apenas como um canal de comunicação, enviando a informação diretamente via correio eletrónico para o endereço oficial: <strong>techlab@pci.pt</strong>.
+                </p>
+              </section>
+
+              <section class="policy-card pa-6 pa-md-8">
+                <h3 class="text-h5 text-dark mb-4">3. Cookies e Rastreio</h3>
+                <p class="text-body-1 text-dark opacity-90 mb-0">
+                  Informamos que este website não utiliza cookies, scripts de rastreamento ou qualquer outra ferramenta de análise de comportamento (como Google Analytics) para recolher ou arquivar dados dos seus visitantes.
+                </p>
+              </section>
+
+              <section class="policy-card pa-6 pa-md-8">
+                <h3 class="text-h5 text-dark mb-4">4. Partilha de Dados com Terceiros</h3>
+                <p class="text-body-1 text-dark opacity-90 mb-0">
+                  A Testbed Aveiro não partilha, vende ou cede os dados recebidos via e-mail a entidades terceiras, salvo se tal for estritamente necessário para o cumprimento de obrigações legais ou sob pedido explícito do utilizador no âmbito da gestão do seu projeto.
+                </p>
+              </section>
+
+              <section class="policy-card pa-6 pa-md-8">
+                <h3 class="text-h5 text-dark mb-4">5. Direitos do Utilizador</h3>
+                <p class="text-body-1 text-dark opacity-90 mb-4">
+                  Nos termos da legislação em vigor, o utilizador tem o direito de aceder, retificar, limitar ou solicitar a eliminação dos seus dados pessoais. Para exercer estes direitos, ou para qualquer esclarecimento adicional sobre as nossas práticas de privacidade, poderá contactar-nos através de:
+                </p>
+                <p class="text-body-1 text-dark opacity-90 mb-2">
+                  <strong>E-mail:</strong> techlab@pci.pt
+                </p>
+                <p class="text-body-1 text-dark opacity-90 mb-0">
+                  <strong>Morada:</strong> Via do Conhecimento, Edifício Central, 3830-352 Ílhavo, Portugal.
+                </p>
+              </section>
+
+              <section class="policy-card pa-6 pa-md-8">
+                <h3 class="text-h5 text-dark mb-4">6. Atualizações</h3>
+                <p class="text-body-1 text-dark opacity-90 mb-4">
+                  Esta política de privacidade pode ser atualizada sempre que se justificar, sendo a versão mais recente sempre a que se encontra publicada nesta página.
+                </p>
+                <p class="text-body-2 text-dark opacity-70 mb-0">
+                  Data da última atualização: 31 de março de 2026.
+                </p>
+              </section>
+            </div>
           </div>
-        </div>
-        <!-- Bottom row: title + badge -->
-        <div
-          class="d-flex flex-md-row flex-column ga-5 align-md-end align-start mt-md-6 mt-3"
-        >
-          <h1 class="text-white text-h1 font-weight-bold mb-0">
-            Privacy Policy
-          </h1>
-          <SharedBigBadge />
-        </div>
-      </div>
+        </v-col>
+      </v-row>
     </div>
-  </div>
-  <div class="bg-darkgray leagal">
-    <div class="container-lg py-lg-16 py-8">
-      <p class="text-subtitle-1">
-        This Privacy Statement explains how personal information about our
-        (potential) customers and other individuals using our services is
-        collected, used, and disclosed by **Nuxtjs Template** ("us", "we",
-        "our"). This Privacy Statement describes our privacy practices in
-        relation to the use of our websites, including any customer portals or
-        interactive websites (<a
-          class="hover-primary-link text-decoration-none text-black font-weight-bold"
-          target="_blank"
-          href="https://nuxt.com/"
-          >https://nuxt.com/</a
-        >), our software (Nuxtjs), services, solutions, tools, and related
-        applications, services, and programs, including research and marketing
-        activities, offered by us (the "Services").
-      </p>
-      <p class="text-subtitle-1">
-        By signing up for our Services and agreeing to our General Terms and
-        Conditions, you consent to the collection, usage, storage, and
-        disclosure of your information as described in this Privacy Statement.
-      </p>
-      <p class="text-subtitle-1">
-        Our Services may contain links to external websites or services. The
-        privacy practices and content of such sites or services will be governed
-        by their respective privacy policies.
-      </p>
-      <p class="text-subtitle-1">
-        We may update this Privacy Statement periodically. If changes occur, we
-        will notify you by updating the date at the top of the statement and
-        providing additional notifications (such as a statement on our homepage
-        or an email notification). We encourage you to review this Privacy
-        Statement whenever you use our Services to stay informed about how we
-        handle your information.
-      </p>
-      <div class="my-6">
-        <h4 class="text-h4 text-dark">Personal Information Collection</h4>
-        <p class="mt-6 text-subtitle-1">
-          While using our Services, we may ask you to provide certain personally
-          identifiable information that can be used to contact or identify you.
-          This may include basic user details (such as your name, email address,
-          telephone number, and profile picture), company information, and any
-          other data you choose to share with us.
-        </p>
-        <p class="text-subtitle-1">
-          We do not collect financial information (such as credit card details
-          or security codes). All payments are handled through a third-party
-          provider. If applicable, please refer to their Privacy
-        </p>
-      </div>
-      <div class="my-6">
-        <h4 class="text-h4 text-dark">
-          Personal Information You Provide to Us
-        </h4>
-        <p class="mt-6 text-subtitle-1">
-          When using our Services, you may provide personally identifiable
-          information, such as when creating an account, requesting customer
-          support, or interacting with our platform.
-        </p>
-        <p class="mt-6 text-subtitle-1">
-          As noted, we do not collect financial details directly. Payments are
-          processed via third-party providers. Please review their privacy
-          policy for details:<a
-            class="hover-primary-link text-decoration-none text-black font-weight-bold"
-            target="_blank"
-            href="http://nuxtjstemplates.com/"
-            >http://nuxtjstemplates.com/</a
-          >.
-        </p>
-      </div>
-    </div>
+
+    <SharedSectionSpacer />
   </div>
 </template>
+
+<style scoped lang="scss">
+.policy-card {
+  background: #ffffff;
+  border: 1px solid rgba(14, 9, 113, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(14, 9, 113, 0.06);
+}
+
+.policy-list {
+  margin: 0;
+  padding-left: 1.25rem;
+
+  li {
+    margin-bottom: 0.5rem;
+    color: rgba(0, 0, 0, 0.85);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+</style>

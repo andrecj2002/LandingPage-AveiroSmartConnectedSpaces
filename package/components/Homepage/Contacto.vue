@@ -27,7 +27,7 @@ import { Icon } from "@iconify/vue";
           <div class="mt-8">
             <form
               class="d-flex flex-column ga-2"
-              action="https://formsubmit.co/joaoajorge@ua.pt"
+              action="https://formsubmit.co/techlab@pci.pt"
               method="POST"
             >
               <!-- FormSubmit.co configuration -->

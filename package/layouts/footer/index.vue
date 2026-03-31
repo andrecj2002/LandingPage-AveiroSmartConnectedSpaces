@@ -18,11 +18,11 @@ const footerLinks = ref([
           <h3 class="text-h5 text-white mb-4">Contactos</h3>
           <div class="d-flex flex-column ga-3">
             <a
-              href="mailto:ascs@ua.pt"
+              href="mailto:techlab@pci.pt"
               class="d-flex ga-2 align-center text-white text-decoration-none text-body-2 hover-link"
             >
               <Icon icon="mdi:email" height="18" class="text-primary" />
-              ascs@ua.pt
+              techlab@pci.pt
             </a>
             <a
               href="https://www.ua.pt"
@@ -65,9 +65,16 @@ const footerLinks = ref([
           <div class="funding-bar pa-4">
             <p class="text-body-2 text-white text-center mb-0">
               <Icon icon="mdi:cash-multiple" height="16" class="me-2" />
-              Projeto financiado pelo Plano de Recuperação e Resiliência (PRR) através das Agendas Mobilizadoras
+              Financiamento:
             </p>
           </div>
+        </v-col>
+      </v-row>
+
+      <!-- Financing Logos -->
+      <v-row class="mb-8">
+        <v-col cols="12" class="text-center">
+          <img src="@/assets/logos-financiamento.png" alt="Logos de Financiamento" class="financing-logos" />
         </v-col>
       </v-row>
 
@@ -104,5 +111,12 @@ const footerLinks = ref([
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.financing-logos {
+  max-width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
 }
 </style>

@@ -1,11 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { useRoute } from 'vue-router';
+import { useRouter } from 'vue-router';
 // static imports for the two header variants
 import whiteLogo from '~/assets/logobranco_png.png';
 import positiveLogo from '~/assets/toolkit-ASCS/assinatura horizontal/vectorial/positivo/ascs-horizontal-min5mm--positivo.svg';
 
 const isAtTop = ref(true);
 const SCROLL_THRESHOLD = 24; // px from top considered "at top"
+const route = useRoute();
+const router = useRouter();
 
 const onScroll = () => {
   isAtTop.value = (window.scrollY ?? 0) <= SCROLL_THRESHOLD;
@@ -17,7 +21,17 @@ onMounted(() => {
 });
 onUnmounted(() => window.removeEventListener('scroll', onScroll));
 
-const logoSrc = computed(() => (isAtTop.value ? positiveLogo : whiteLogo));
+const logoSrc = computed(() => {
+  if (route.path === '/privacy-policy') {
+    return isAtTop.value ? positiveLogo : whiteLogo;
+  }
+
+  if (route.path !== '/') {
+    return whiteLogo;
+  }
+
+  return isAtTop.value ? positiveLogo : whiteLogo;
+});
 
 const scrollTo = (hash: string) => {
   try {
@@ -31,11 +45,20 @@ const scrollTo = (hash: string) => {
     // noop
   }
 };
+
+const onLogoClick = () => {
+  if (route.path === '/') {
+    scrollTo('#home');
+    return;
+  }
+
+  router.push('/');
+};
 </script>
 
 <template>
   <div class="logo lh-normal">
-    <a href="#home" @click.prevent="scrollTo('#home')">
+    <a href="/" @click.prevent="onLogoClick">
       <img :src="logoSrc" class="header-logo" alt="Aveiro Smart Connected Spaces" />
     </a>
   </div>

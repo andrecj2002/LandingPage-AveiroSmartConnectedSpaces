@@ -59,7 +59,7 @@ const cancelRedirect = () => {
                     <strong>Importante:</strong> Primeira submissão
                   </h4>
                   <p class="text-body-2 text-dark opacity-80 mb-3">
-                    Se esta é a primeira vez que alguém submete o formulário, o administrador (joaoajorge@ua.pt) 
+                    Se esta é a primeira vez que alguém submete o formulário, o administrador (techlab@pci.pt) 
                     receberá um <strong>e-mail de verificação do FormSubmit.co</strong>.
                   </p>
                   <p class="text-body-2 text-dark opacity-80 mb-0">
